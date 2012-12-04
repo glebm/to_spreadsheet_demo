@@ -1,0 +1,27 @@
+<%= render 'shared' %>
+
+<style type="text/css">
+    .price { text-align: right }
+    thead { background-color: #ccc; font-weight: bold; }
+</style>
+
+<% format_xls 'table' do
+     format 'thead th', bg_color: 'CCCCCC'
+     format '.price', alignment: {horizontal: :right}
+end %>
+
+<table>
+  <caption>Inventory</caption>
+  <thead>
+  <tr>
+    <th>Product</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <% [['Bag of Holding', '50.0 ฿'], ['Magic wand', '100.00 ฿'], ['Ice sword', '100.00 ฿']].each do |p| %>
+      <tr>
+        <td class="name"><%= p[0] %></td>
+        <td class="price"><%= p[1] %></td>
+      </tr>
+  <% end %>
+</table>
